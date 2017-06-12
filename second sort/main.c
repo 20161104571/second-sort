@@ -8,8 +8,32 @@
 
 #include <stdio.h>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
-    return 0;
+void main()
+{
+    FILE *fin;
+    int a[10],k;
+    int i,j;
+    fin=fopen("sort.pages","r");
+    for(i=0;i<10;i++)
+    {
+        scanf(fin,"%d",&a[i]);
+    }
+    fclose(fin);
+    for(i=0;i<9;i++)
+    {
+        for(j=0;j<9-i;j++)
+        {
+            if(a[j]>a[j+1])
+            {
+                k=a[j];
+                a[j]=a[j+1];
+                a[j+1]=k;
+            }
+        }
+    }
+    for(i=0;i<10;i++)
+    {
+        printf("%d ",a[i]);
+    }
 }
+
